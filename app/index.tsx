@@ -10,14 +10,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Link
-        href="/profile"
-        style={{
-          color: "blue",
-          textDecorationLine: "underline",
-          marginBottom: 10,
-        }}
-      >
+      <Link href="/profile" className="text-blue-500 mb-2 text-xl">
         Profile
       </Link>
       <Text>Edit app/index.tsx to edit this screen.</Text>

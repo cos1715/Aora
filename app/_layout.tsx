@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 import { Stack, Slot } from "expo-router";
+import "../global.css";
 
 export default function RootLayout() {
   return (
