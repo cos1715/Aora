@@ -10,12 +10,9 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Link href="/profile" className="text-primary mb-2 text-xl">
-        Profile
+      <Link href="/home" className="text-primary mb-2 text-xl">
+        Go to home
       </Link>
-      <Text className="font-pblack">
-        Edit app/index.tsx to edit this screen.
-      </Text>
     </View>
   );
 }
