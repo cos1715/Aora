@@ -11,7 +11,7 @@ export default function SignIn() {
       }}
     >
       <Link href="/profile" className="text-primary mb-2 text-xl">
-        Profile
+        sign in
       </Link>
       <Text className="font-pblack">
         Edit app/index.tsx to edit this screen.

@@ -22,7 +22,7 @@ const TabIcon: FC<ITabIcon> = ({ focused, color, name, source }) => {
       />
       <Text
         className={cn("font-pregular text-xs", { "font-psemibold": focused })}
-        style={{ color }}
+        style={{ color, textAlign: "center" }}
       >
         {name}
       </Text>
@@ -39,39 +39,45 @@ const tabsConfig = [
 
 export default function TabsLayout() {
   return (
-    <>
-      <Tabs
-        screenOptions={{
-          tabBarShowLabel: false,
-          tabBarActiveTintColor: "#ffa001",
-          tabBarInactiveTintColor: "#cdcde0",
-          tabBarStyle: {
-            backgroundColor: "#161622",
-            borderTopWidth: 1,
-            borderTopColor: "#232533",
-            height: 84,
-          },
-        }}
-      >
-        {tabsConfig.map((tab) => (
-          <Tabs.Screen
-            key={tab.name}
-            name={tab.name}
-            options={{
-              title: tab.title,
-              headerShown: false,
-              tabBarIcon: ({ color, focused }) => (
-                <TabIcon
-                  color={color}
-                  focused={focused}
-                  source={tab.icon}
-                  name={tab.title}
-                />
-              ),
-            }}
-          />
-        ))}
-      </Tabs>
-    </>
+    <Tabs
+      screenOptions={{
+        tabBarShowLabel: false,
+        tabBarActiveTintColor: "#ffa001",
+        tabBarInactiveTintColor: "#cdcde0",
+        tabBarIconStyle: {
+          width: "100%",
+          height: "100%",
+        },
+        tabBarItemStyle: {
+          width: "100%",
+          height: "100%",
+        },
+        tabBarStyle: {
+          backgroundColor: "#161622",
+          borderTopWidth: 1,
+          borderTopColor: "#232533",
+          height: 84,
+        },
+      }}
+    >
+      {tabsConfig.map((tab) => (
+        <Tabs.Screen
+          key={tab.name}
+          name={tab.name}
+          options={{
+            title: tab.title,
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                color={color}
+                focused={focused}
+                source={tab.icon}
+                name={tab.title}
+              />
+            ),
+          }}
+        />
+      ))}
+    </Tabs>
   );
 }
