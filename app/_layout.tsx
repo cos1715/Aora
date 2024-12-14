@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { Stack, Slot } from "expo-router";
+import { StyleSheet } from "react-native";
+import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
+import GlobalProvider from "@/context/GlobalProvider";
 import "../global.css";
 
 SplashScreen.preventAutoHideAsync();
@@ -30,9 +31,12 @@ export default function RootLayout() {
   }, [fontsLoaded, error]);
 
   return fontsLoaded && !error ? (
-    <Stack>
-      <Stack.Screen name="index" options={{ headerShown: false }} />
-    </Stack>
+    <GlobalProvider>
+      <Stack>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+      </Stack>
+    </GlobalProvider>
   ) : null;
 }
 

@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { View, Image, Text } from "react-native";
 import { Tabs } from "expo-router";
 import cn from "classnames";
@@ -11,7 +10,7 @@ interface ITabIcon {
   source: any;
 }
 
-const TabIcon: FC<ITabIcon> = ({ focused, color, name, source }) => {
+const TabIcon = ({ focused, color, name, source }: ITabIcon) => {
   return (
     <View className="justify-center items-center gap-2 flex r-width-726pan r-height-h0d30l">
       <Image

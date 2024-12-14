@@ -1,32 +1,33 @@
-import { FC } from "react";
 import classNames from "classnames";
 import { TouchableOpacity, Text } from "react-native";
 
 interface ICustomButton {
-  className?: string;
+  containerClassName?: string;
   textClassName?: string;
   isLoading?: boolean;
-  children: React.ReactNode;
+  title: string;
   handlePress?: () => void;
 }
 
-export const CustomButton: FC<ICustomButton> = ({
-  children,
+export const CustomButton = ({
+  title,
   handlePress,
-  className,
+  containerClassName,
   textClassName,
   isLoading,
-}) => {
+}: ICustomButton) => {
+  const wrapperClass = classNames(
+    "bg-secondary rounded-xl min-h-[62px] justify-center items-center",
+    containerClassName,
+    { "opacity-50": isLoading }
+  );
+
   return (
     <TouchableOpacity
       onPress={handlePress}
       activeOpacity={0.7}
       disabled={isLoading}
-      className={classNames(
-        "bg-secondary rounded-xl min-h-[62px] justify-center items-center",
-        className,
-        { "opacity-50": isLoading }
-      )}
+      className={wrapperClass}
     >
       <Text
         className={classNames(
@@ -34,7 +35,7 @@ export const CustomButton: FC<ICustomButton> = ({
           textClassName
         )}
       >
-        {children}
+        {title}
       </Text>
     </TouchableOpacity>
   );
